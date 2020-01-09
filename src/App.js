@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import Header from './Header';
 import './App.css';
-import { Route } from 'react-router-dom'
+import { Route, } from 'react-router-dom'
 import NoteList from './NoteList';
 import FolderList from './FolderList';
-
+import NotePage from './NotePage';
 
 
 class App extends Component {
@@ -147,16 +147,42 @@ class App extends Component {
   </ul>
 
   <ul className="note-list">
-  {this.state.notes.map((note)=>{
-   return <NoteList  key={note.id} 
-                     id={note.id}
-                    name={note.name}  
-                     content={note.content}  
-                      modified={note.modified}
-                      folderId={note.folderId}
-                    />
-  })}
-  </ul>
+    <Route
+    exact path="/"
+  render={()=> this.state.notes.map(note=>
+   <NoteList
+    key={note.id} 
+                        id={note.id}
+                       name={note.name}  
+                        content={note.content}  
+                         modified={note.modified}
+                         folderId={note.folderId}/>) }
+                       
+  
+  
+  
+  
+  
+
+
+  // {this.state.notes.map((note)=>{
+  //  return <NoteList  key={note.id} 
+  //                    id={note.id}
+  //                   name={note.name}  
+  //                    content={note.content}  
+  //                     modified={note.modified}
+  //                     folderId={note.folderId}
+  //                   />
+  // })}
+  />   </ul>
+
+<Route
+            path='/note/:id'
+            // component={NotePage}
+          render={({ match })=>{
+        return  <NotePage match={match} notes={this.state.notes} />
+          }}
+            />
 
 </main>
     </div>

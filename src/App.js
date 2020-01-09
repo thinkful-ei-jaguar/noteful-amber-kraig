@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Header from './Header';
 import './App.css';
 import { Route } from 'react-router-dom'
+import NoteList from './NoteList';
 class App extends Component {
   
   state= {
@@ -124,11 +125,24 @@ class App extends Component {
   
   render(){
     return (
+      <div className="App">
 <Route>
-    <div className="App">
+    
       <Header />
+  </Route>
+  <ul className="note-list">
+  {this.state.notes.map((note)=>{
+   return <NoteList  key={note.id} 
+                    name={note.name}  
+                     content={note.content}  
+                      modified={note.modified}
+                      folderId={note.folderId}
+                    />
+  })}
+  </ul>
+
+
     </div>
-    </Route>
   );
 }
 }

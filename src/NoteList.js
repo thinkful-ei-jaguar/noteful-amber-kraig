@@ -7,7 +7,7 @@ render(){
 
 return(
 <li><h4>{this.props.name} </h4> 
-<p>{this.props.content}</p>
+<p> Modified: {this.props.modified}</p>
 
 
 </li>

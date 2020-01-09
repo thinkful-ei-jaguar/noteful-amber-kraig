@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+body,html{
+  height:100%;
+}
+
 
 header a{
   color:black;
@@ -14,21 +18,21 @@ display:flex;
 flex-wrap:wrap;
 }
 .note-list li{
-  width:100%;
+  width:60%;
   border:2px solid black;
 
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+main{
+  display:flex;
+  flex-wrap:wrap;
 }
 
+.folder-list{
+  list-style: none;
+}
 
-
+.folder-list li{
+  width:30%;
+}

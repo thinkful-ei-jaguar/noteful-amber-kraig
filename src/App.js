@@ -3,6 +3,10 @@ import Header from './Header';
 import './App.css';
 import { Route } from 'react-router-dom'
 import NoteList from './NoteList';
+import FolderList from './FolderList';
+
+
+
 class App extends Component {
   
   state= {
@@ -130,9 +134,22 @@ class App extends Component {
     
       <Header />
   </Route>
+<main>
+  <ul className="folder-list">
+{this.state.folders.map(folder=>{
+  return <FolderList name={folder.name}
+                     key={folder.id}
+                     id={folder.id}
+  
+              />
+})}
+
+  </ul>
+
   <ul className="note-list">
   {this.state.notes.map((note)=>{
    return <NoteList  key={note.id} 
+                     id={note.id}
                     name={note.name}  
                      content={note.content}  
                       modified={note.modified}
@@ -141,7 +158,7 @@ class App extends Component {
   })}
   </ul>
 
-
+</main>
     </div>
   );
 }

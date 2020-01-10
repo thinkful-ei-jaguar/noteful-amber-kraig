@@ -39,3 +39,7 @@ main{
   width:inherit;
   border:2px solid black;
 }
+
+.selected li{
+background:lightskyblue;
+}

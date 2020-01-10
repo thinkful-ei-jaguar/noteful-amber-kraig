@@ -135,16 +135,28 @@ class App extends Component {
       <Header />
   </Route>
 <main>
+
   <ul className="folder-list">
-{this.state.folders.map(folder=>{
-  return <FolderList name={folder.name}
-                     key={folder.id}
-                     id={folder.id}
+  <Route
+path="/folder/:folderId"
+render={()=>{
+
+
+
+}}
+/>
+
+ {this.state.folders.map(folder=>{
+   return <FolderList name={folder.name}
+                      key={folder.id}
+                      id={folder.id}
+                      
   
-              />
-})}
+               />
+ })}
 
   </ul>
+  
 
   <ul className="note-list">
     <Route
@@ -160,20 +172,7 @@ class App extends Component {
                        
   
   
-  
-  
-  
 
-
-  // {this.state.notes.map((note)=>{
-  //  return <NoteList  key={note.id} 
-  //                    id={note.id}
-  //                   name={note.name}  
-  //                    content={note.content}  
-  //                     modified={note.modified}
-  //                     folderId={note.folderId}
-  //                   />
-  // })}
   />   </ul>
 
 <Route

@@ -6,10 +6,11 @@ class FolderList extends Component{
 render()
 {
 return(
-<li>
-<h4><NavLink to="">{this.props.name}</NavLink></h4>
+<NavLink activeClassName="selected"
+ to={`/folder/${this.props.id}`}><li>
+<h4>{this.props.name}</h4>
 </li>
-
+</NavLink>
 
 
 )

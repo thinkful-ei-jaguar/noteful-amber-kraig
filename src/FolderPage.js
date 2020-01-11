@@ -5,19 +5,31 @@ class FolderPage extends Component{
 
 
 render(){
+    console.log(this.props.match)
+let finalFolders=  this.props.notes.filter(note=>{
+return note.folderId === this.props.match.params.folderId})
+// finalFolders.join("")
+console.log(finalFolders)
 
-return(
+
+return (
+    <ul>
+    {finalFolders.map(each=>{
+     return   <li><h2>yes {each.name} </h2>
+<p>no  {each.content}</p>    </li>
+    })
+ }
 
 
+    </ul>
     
 )
 
 
 
+
+
 }
-
-
-
 
 
 }

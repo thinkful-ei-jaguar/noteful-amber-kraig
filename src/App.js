@@ -5,7 +5,7 @@ import { Route, } from 'react-router-dom'
 import NoteList from './NoteList';
 import FolderList from './FolderList';
 import NotePage from './NotePage';
-
+import FolderPage from './FolderPage';
 
 class App extends Component {
   
@@ -136,16 +136,17 @@ class App extends Component {
   </Route>
 <main>
 
-  <ul className="folder-list">
+  {/* <ul className="folder-list"> */}
   <Route
 path="/folder/:folderId"
-render={()=>{
-
+render={({match})=>{
+return <FolderPage match={match} folders={this.state.folders}
+notes={this.state.notes }  />
 
 
 }}
 />
-
+<ul className="folder-list">
  {this.state.folders.map(folder=>{
    return <FolderList name={folder.name}
                       key={folder.id}

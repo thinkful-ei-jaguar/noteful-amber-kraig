@@ -15,7 +15,7 @@ console.log(finalFolders)
 return (
     <ul>
     {finalFolders.map(each=>{
-     return   <li><h2>yes {each.name} </h2>
+     return   <li key={each.id}><h2>yes {each.name} </h2>
 <p>no  {each.content}</p>    </li>
     })
  }

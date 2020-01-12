@@ -20,11 +20,14 @@ display:flex;
 flex-wrap:wrap;
 }
 .note-list li{
-  width:60%;
+  width:85%;
   border:2px solid black;
 
 }
 
+li{
+  list-style-type: none;
+}
 
 main{
   display:flex;
@@ -43,4 +46,9 @@ main{
 
 .selected li{
 background:lightskyblue;
+}
+
+.filtered-folders{
+  width:85%;
+  border:2px solid black;
 }

@@ -137,15 +137,7 @@ class App extends Component {
 <main>
 
   {/* <ul className="folder-list"> */}
-  <Route
-path="/folder/:folderId"
-render={({match})=>{
-return <FolderPage match={match} folders={this.state.folders}
-notes={this.state.notes }  />
-
-
-}}
-/>
+  
 <ul className="folder-list">
  {this.state.folders.map(folder=>{
    return <FolderList name={folder.name}
@@ -158,6 +150,17 @@ notes={this.state.notes }  />
 
   </ul>
   
+  
+  <Route
+
+path="/folder/:folderId"
+render={({match})=>{
+return <FolderPage match={match} folders={this.state.folders}
+notes={this.state.notes }  />
+
+
+}}
+/>
 
   <ul className="note-list">
     <Route

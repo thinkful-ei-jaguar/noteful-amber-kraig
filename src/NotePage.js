@@ -14,7 +14,7 @@ return(
     <div>
 <h3>{each.name}</h3>
 <p>{each.content}
-<p>{each.name}</p>
+{/* <p>{each.name}</p> */}
 </p>  
 
         </div>

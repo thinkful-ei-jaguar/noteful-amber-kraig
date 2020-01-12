@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Header from './Header';
 import './App.css';
-import { Route, } from 'react-router-dom'
+import { Route} from 'react-router-dom'
 import NoteList from './NoteList';
 import FolderList from './FolderList';
 import NotePage from './NotePage';
@@ -163,6 +163,7 @@ notes={this.state.notes }  />
 />
 
   <ul className="note-list">
+    
     <Route
     exact path="/"
   render={()=> this.state.notes.map(note=>

@@ -8,7 +8,7 @@ render()
 return(
 <NavLink activeClassName="selected"
  to={`/folder/${this.props.id}`}><li>
-<h4>{this.props.name}</h4>
+<h4>{this.props.name}</h4> 
 </li>
 </NavLink>
 

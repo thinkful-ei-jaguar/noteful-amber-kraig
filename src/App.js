@@ -130,10 +130,10 @@ class App extends Component {
   render(){
     return (
       <div className="App">
-<Route>
+
     
       <Header />
-  </Route>
+
 <main>
 
   {/* <ul className="folder-list"> */}
@@ -144,12 +144,14 @@ class App extends Component {
                       key={folder.id}
                       id={folder.id}
                       
-  
+   
                />
  })}
 
   </ul>
   
+  
+<ul className="note-list">
   
   <Route
 
@@ -161,9 +163,10 @@ notes={this.state.notes }  />
 
 }}
 />
+</ul>
 
   <ul className="note-list">
-    
+  
     <Route
     exact path="/"
   render={()=> this.state.notes.map(note=>
@@ -180,16 +183,17 @@ notes={this.state.notes }  />
 
   />   </ul>
 
+
 <Route
             path='/note/:id'
-            // component={NotePage}
+           
           render={({ match })=>{
-        return  <NotePage match={match} notes={this.state.notes} />
+        return  <NotePage match={match} notes={this.state.notes} folders={this.state.folders} />
           }}
             />
-
 </main>
     </div>
+    
   );
 }
 }

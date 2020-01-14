@@ -1,12 +1,30 @@
-.App {
-  text-align: center;
-  
+.side{
+  width:30%;
 }
+
+main{
+width:700px;
+display:flex
+
+}
+
+header{
+  width:100%;
+}
+
+
+.App {
+display:flex;
+  text-align: center;
+  flex-wrap:wrap;
+
+}
+  
+  
 
 body,html{
   height:100%;
-}
-
+} 
 
 header a{
   color:black;
@@ -18,6 +36,7 @@ header a{
 list-style: none;
 display:flex;
 flex-wrap:wrap;
+/* background:blue; */
 }
 .note-list li{
   width:85%;

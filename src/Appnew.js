@@ -166,10 +166,10 @@ class Appnew extends Component {
 
 <Route
               path="/note/:id"
-              render={({ match }) => {
+              render={({ match, history }) => {
                 return (
 
-                  <SidebarFolder match={match} folders={this.state.folders} notes={this.state.notes} />
+                  <SidebarFolder match={match} history={history} folders={this.state.folders} notes={this.state.notes} />
                 );
               }}
             ></Route>
@@ -205,10 +205,10 @@ class Appnew extends Component {
            
             <Route
               path="/note/:id"
-              render={({ match }) => {
+              render={({ match , history }) => {
                 return (
 
-                  <NotePage match={match} folders={this.state.folders} notes={this.state.notes} />
+                  <NotePage match={match} history={history} folders={this.state.folders} notes={this.state.notes} />
                 );
               }}
             ></Route>

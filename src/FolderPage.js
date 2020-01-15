@@ -12,7 +12,7 @@ class FolderPage extends Component {
         let finalFolders = this.props.notes.filter(note => {
             return note.folderId === this.props.match.params.folderId
         })
-        // console.log(finalFolders)
+        console.log(finalFolders)
 
 
         return (

@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import FolderList from './FolderList';
+//import FolderList from './FolderList';
 
 
 
@@ -9,15 +9,16 @@ render(){
     const each  = this.props.notes.find(item =>
          item.id === this.props.match.params.id
         )
-const currentFolder= this.props.folders.find(folder=>
-   each.folderId === folder.id )
+// const currentFolder= this.props.folders.find(folder=>
+//    each.folderId === folder.id )const currentFolder= this.props.folders.find(folder=>
+//    each.folderId === folder.id )
 
 return(
     <>
-<FolderList 
+{/* <FolderList 
 id={currentFolder.id}
 name={currentFolder.name} 
-/>
+/> */}
     <div>
 <h3>{each.name}</h3>
 <p>{each.content}

@@ -5,8 +5,10 @@ import Main from "./Main";
 import Header from "./Header";
 import "./App.css";
 import NotePage from './NotePage';
-import SidebarFolder from './SidebarFolder';
-
+import SidebarFolder from './SidebarFolder';    
+// import NoteList from './NoteList';
+import FolderPage from './FolderPage';
+import FolderList from './FolderList';
 class Appnew extends Component {
   state = {
     folders: [
@@ -145,9 +147,35 @@ class Appnew extends Component {
         <Header />
 
         <aside className="side">
-           <Switch> 
-          <Route
-           exact path="/"
+           
+           <Switch>
+         
+            <Route
+           exact path="/folders/:folderId"
+            render={({ match }) => {
+              return (
+            
+                 <SideBar
+
+                   folders={this.state.folders}
+                   notes={this.state.notes}
+                 />
+              );
+            }}
+          ></Route>    
+
+<Route
+              path="/note/:id"
+              render={({ match }) => {
+                return (
+
+                  <SidebarFolder match={match} folders={this.state.folders} notes={this.state.notes} />
+                );
+              }}
+            ></Route>
+
+<Route
+            path="/"
             render={() => {
               return (
                 <SideBar
@@ -158,43 +186,23 @@ class Appnew extends Component {
               );
             }}
           ></Route>
-{/* 
-          <Route
-            path="/folders/:folderId"
-            render={() => {
-              return (
-                <SideBar
-                  folders={this.state.folders}
-                  notes={this.state.notes}
-                />
-              );
-            }}
-          ></Route> */}
-<Route
-              path="/note/:id"
-              render={({ match }) => {
-                return (
+ 
 
-                  <SidebarFolder match={match} folders={this.state.folders} notes={this.state.notes} />
-                );
-              }}
-            ></Route>
+
 </Switch>
+
+
+
+          
 
 
         </aside>
 
+
+
         <main>
           <Switch>
-            <Route
-              exact
-              path="/"
-              render={() => {
-                return (
-                  <Main folders={this.state.folders} notes={this.state.notes} />
-                );
-              }}
-            ></Route>
+           
             <Route
               path="/note/:id"
               render={({ match }) => {
@@ -204,7 +212,36 @@ class Appnew extends Component {
                 );
               }}
             ></Route>
-          </Switch>
+
+                <Route
+            path="/folder/:folderId"
+            render={({ match }) => {
+              return (
+                  <ul>
+                <FolderPage
+                match={match}
+                  folders={this.state.folders}
+                  notes={this.state.notes}
+                />
+                </ul>
+              );
+            }}
+          ></Route> 
+
+       <Route
+              exact
+              path="/"
+              render={() => {
+                return (
+                  <Main folders={this.state.folders} notes={this.state.notes} />
+                );
+              }}
+            ></Route>
+
+
+
+</Switch>
+          
         </main>
         {/* <Switch>
           <Route

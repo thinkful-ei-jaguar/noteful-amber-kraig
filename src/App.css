@@ -1,3 +1,19 @@
+
+/* * {
+  text-decoration: none;
+} */
+a{
+text-decoration: none;
+color:black;
+}
+a:visited{
+  text-decoration: none;
+}
+
+a:hover{
+  color:lightsalmon;
+}
+
 .side{
   width:30%;
 }
@@ -36,9 +52,10 @@ header a{
 list-style: none;
 display:flex;
 flex-wrap:wrap;
+
 /* background:blue; */
 }
-.note-list li{
+.note-list-item{
   width:85%;
   border:2px solid black;
 

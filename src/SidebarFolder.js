@@ -14,7 +14,7 @@ class SidebarFolder extends Component{
 
         return(
 <div>
-<button onClick={this.props.history.goBack}>Back</button>
+<button onClick={this.props.history.goBack}>Go Back</button>
 <p>{currentFolder.name}</p>
 </div>
 

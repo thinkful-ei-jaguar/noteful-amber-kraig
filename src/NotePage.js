@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-//import FolderList from './FolderList';
+//import NoteList from './NoteList';
 
 
 
@@ -19,8 +19,9 @@ return(
 id={currentFolder.id}
 name={currentFolder.name} 
 /> */}
-    <div>
-<h3>{each.name}</h3>
+    <div >
+<h3 className="note-list-item">{each.name}</h3>
+
 <p>{each.content}
 
 </p>  

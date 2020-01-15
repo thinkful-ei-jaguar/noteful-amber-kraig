@@ -151,7 +151,7 @@ class Appnew extends Component {
            <Switch>
          
             <Route
-           exact path="/folders/:folderId"
+           exact path="/folder/:folderId"
             render={({ match }) => {
               return (
             
@@ -175,7 +175,7 @@ class Appnew extends Component {
             ></Route>
 
 <Route
-            path="/"
+           exact path="/"
             render={() => {
               return (
                 <SideBar
@@ -217,7 +217,7 @@ class Appnew extends Component {
             path="/folder/:folderId"
             render={({ match }) => {
               return (
-                  <ul>
+                  <ul className="note-list">
                 <FolderPage
                 match={match}
                   folders={this.state.folders}

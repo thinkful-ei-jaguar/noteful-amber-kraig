@@ -9,6 +9,10 @@ import SidebarFolder from './SidebarFolder';
 // import NoteList from './NoteList';
 import FolderPage from './FolderPage';
 import FolderList from './FolderList';
+import NotefulContext from './NotefulContext';
+
+
+
 class Appnew extends Component {
   state = {
     folders: [

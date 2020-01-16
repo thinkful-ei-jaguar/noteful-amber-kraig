@@ -1,9 +1,12 @@
 import React, {Component } from 'react';
 
 import NoteList from './NoteList';
+import NotefulContext from './NotefulContext';
 
 
-class Main extends Component{
+class MainContext extends Component{
+static contextType = NotefulContext
+
 
 render(){
 
@@ -47,4 +50,4 @@ return(
 }
 
 
-export default Main
+export default MainContext

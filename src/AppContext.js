@@ -39,16 +39,27 @@ componentDidMount(){
 
 }
 
+handleDeleteNote = noteId=>{
+  fetch(`http://localhost:9090/notes/${noteId}`,{
+    method:'DELETE'
+  }
+
+  )
+  .then(response=>{
+    this.componentDidMount();
+  })
+  
+}
   
 
-handleDeleteNote = noteId=>{
-    this.setState({
-        notes:this.state.notes.filter(note=>{
-          return  note.id!== noteId
-        })
-    })
+// handleDeleteNote = noteId=>{
+//     this.setState({
+//         notes:this.state.notes.filter(note=>{
+//           return  note.id!== noteId
+//         })
+//     })
 
-}
+// }
 
   render() {
     const value = {

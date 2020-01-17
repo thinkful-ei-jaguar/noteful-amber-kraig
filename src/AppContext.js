@@ -67,7 +67,7 @@ handleDeleteNote = noteId=>{
          
             <Route
            exact path="/folder/:folderId"
-            compoent={<SideBar/>}
+            component={<SideBar/>}
           ></Route>    
 
 <Route

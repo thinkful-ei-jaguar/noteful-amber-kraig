@@ -10,6 +10,7 @@ import NotePage from './NotePage';
 import SidebarFolder from './SidebarFolder';    
 // import NoteList from './NoteList';
 import FolderPage from './FolderPage';
+import AddFolder from './AddFolder';
 
 import NotefulContext from './NotefulContext';
 
@@ -43,6 +44,9 @@ handleDeleteNote = noteId=>{
   fetch(`http://localhost:9090/notes/${noteId}`,{
     method:'DELETE'
   }
+  // handleAddNote =(){
+
+  // }
 
   )
   .then(response=>{
@@ -145,7 +149,9 @@ handleDeleteNote = noteId=>{
               path="/"
               component={MainContext}
             ></Route>
-
+<Route
+path="/addfolder"
+component={AddFolder} />
 
 
 </Switch>

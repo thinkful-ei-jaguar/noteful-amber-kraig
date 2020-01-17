@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 //import {NavLink} from 'react-router-dom';
 import FolderList from './FolderList';
-
+import AddFolder from './AddFolder';
 class Sidebar extends Component{
 
 render(){
@@ -17,7 +17,8 @@ return(
    
                />
  })}
-
+ 
+<AddFolder/>
 
     </ul>
 

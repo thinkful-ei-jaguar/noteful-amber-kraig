@@ -13,7 +13,7 @@ render(){
 return(
     <ul className="note-list">
 
-    {this.props.notes.map(note=>{
+    {this.context.notes.map(note=>{
     return <NoteList
         key={note.id} 
         id={note.id}

@@ -1,7 +1,14 @@
+.note-sidebar{
+  writing-mode: vertical-lr;
+  text-orientation: upright;
 
-/* * {
-  text-decoration: none;
-} */
+}
+
+button:hover{
+  color:lightcoral;
+  transform:scale(1.2);
+}
+
 a{
 text-decoration: none;
 color:black;

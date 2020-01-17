@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
-import SideBar from "./Sidebar";
-import Main from "./Main";
+//import SideBar from "./Sidebar";
+import SidebarContext from './SidebarContext';
+//import Main from "./Main";
+import MainContext from './MainContext';
 import Header from "./Header";
 import "./App.css";
 import NotePage from './NotePage';
@@ -67,7 +69,7 @@ handleDeleteNote = noteId=>{
          
             <Route
            exact path="/folder/:folderId"
-            component={<SideBar/>}
+           component={SidebarContext}
           ></Route>    
 
 <Route
@@ -82,15 +84,8 @@ handleDeleteNote = noteId=>{
 
 <Route
            exact path="/"
-            render={() => {
-              return (
-                <SideBar
-
-                  folders={this.state.folders}
-                  notes={this.state.notes}
-                />
-              );
-            }}
+            component={SidebarContext}
+              
           ></Route>
  
 
@@ -137,11 +132,7 @@ handleDeleteNote = noteId=>{
        <Route
               exact
               path="/"
-              render={() => {
-                return (
-                  <Main folders={this.state.folders} notes={this.state.notes} />
-                );
-              }}
+              component={MainContext}
             ></Route>
 
 

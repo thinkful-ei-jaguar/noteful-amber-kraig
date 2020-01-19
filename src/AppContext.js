@@ -55,13 +55,15 @@ class AppContext extends Component {
   handleAddFolder = event => {
     event.preventDefault();
     const newFolder = this.addFolder.current.value;
-    console.warn("this is folder name", newFolder);
-    // fetch(`http://localhost:9090/folders/`, {
-    //   method: "POST",
-    //   headers: {
-    //     "content-type": "application/json"
-    //   }
-    // });
+    
+    //const name =JSON.stringify(newFolder)
+    
+     fetch('http://localhost:9090/folders', {
+      method: 'POST',
+       headers: {'Content-Type':'application/json'},
+      body:JSON.stringify({"name":newFolder})
+    });
+    this.componentDidMount();
   };
 
   // handleDeleteNote = noteId=>{

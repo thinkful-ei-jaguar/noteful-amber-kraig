@@ -17,10 +17,16 @@ import NotefulContext from './NotefulContext';
 
 
 class AppContext extends Component {
-  state = {
-    folders: [],
-    notes: []
-  };
+  constructor(){
+    super();
+
+    this.state = {
+      folders: [],
+      notes: []
+    };
+    this.AddFolder=React.createRef;
+  }
+
 
 componentDidMount(){
     Promise.all([
@@ -44,9 +50,8 @@ handleDeleteNote = noteId=>{
   fetch(`http://localhost:9090/notes/${noteId}`,{
     method:'DELETE'
   }
-  // handleAddNote =(){
 
-  // }
+ 
 
   )
   .then(response=>{
@@ -55,6 +60,15 @@ handleDeleteNote = noteId=>{
   
 }
   
+handleAddFolder =event=>{
+  event.PreventDefault();
+  fetch( `http://localhost:9090/folders/`,{
+    method:'POST',
+    headers: {
+      'content-type': 'application/json'
+  }
+     })
+    }
 
 // handleDeleteNote = noteId=>{
 //     this.setState({
@@ -149,9 +163,12 @@ handleDeleteNote = noteId=>{
               path="/"
               component={MainContext}
             ></Route>
+
 <Route
-path="/addfolder"
-component={AddFolder} />
+path="/add-folder"
+render={({history})=>{
+ return <AddFolder addFolder={this.AddFolder} history={history} handleAddFolder={this.handleAddFolder} />
+}}/>
 
 
 </Switch>

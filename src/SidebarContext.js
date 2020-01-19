@@ -24,7 +24,7 @@ return(
    
                />
  })}
-<Link to="/addfolder" >Add A Folder</Link>
+<Link to="/add-folder" >Add New Folder</Link>
 
     </ul>
 

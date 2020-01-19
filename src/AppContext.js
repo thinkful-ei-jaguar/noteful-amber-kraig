@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, withRouter } from "react-router-dom";
 //import SideBar from "./Sidebar";
 import SidebarContext from "./SidebarContext";
 //import Main from "./Main";
@@ -62,8 +62,14 @@ class AppContext extends Component {
       method: 'POST',
        headers: {'Content-Type':'application/json'},
       body:JSON.stringify({"name":newFolder})
-    });
-    this.componentDidMount();
+    })
+    .then(response=>{
+      this.componentDidMount();
+      console.log("this",this.props.history.push('/'))
+      this.props.history.push('/')
+      
+      
+    })
   };
 
   // handleDeleteNote = noteId=>{
@@ -198,4 +204,4 @@ class AppContext extends Component {
   }
 }
 
-export default AppContext;
+export default withRouter(AppContext);

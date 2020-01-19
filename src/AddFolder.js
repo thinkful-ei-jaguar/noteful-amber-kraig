@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-
+import {withRouter} from 'react-router-dom';
 
 
 class AddFolder extends Component{
@@ -28,4 +28,4 @@ console.warn("add folder component is rendering")
 }
 
 
-export default AddFolder
+export default withRouter(AddFolder)

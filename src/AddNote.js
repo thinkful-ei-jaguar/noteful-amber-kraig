@@ -23,14 +23,14 @@ class AddNote extends Component{
 
 render(){
     let folderOptions= this.props.folders.map(folder=>{
-        return <option>{folder.name}</option>
+        return <option >{folder.name}</option>
     })
 return(
 
-<form>
-<input type="text" placeholder="Enter note title"></input><br/><br/>
-<textarea placeholder="Enter note content"></textarea><br/><br/>
-<select>
+<form onSubmit={event=>this.props.handleNoteSubmit(event)}>
+<input name="title" type="text" placeholder="Enter note title"></input><br/><br/>
+<textarea name="content" placeholder="Enter note content"></textarea><br/><br/>
+<select name="folderId">
     {folderOptions}
 </select><br/><br/>
 <input type="submit"></input>

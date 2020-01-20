@@ -73,6 +73,25 @@ class AppContext extends Component {
     })
   };
 
+  handleNoteSubmit= event=>{
+event.preventDefault()
+fetch('http://localhost:9090/notes',{
+  method:'POST',
+  headers:{'Content-Type':'application/json'},
+body:JSON.stringify({
+  name:event.currentTarget.title.value,
+  folderId:event.currentTarget.folderId.value,
+  content:event.currentTarget.content.value
+})
+})
+.then(response=>{
+  this.componentDidMount()
+  this.props.history.push("/")
+})
+
+
+
+  }
   
 
   render() {
@@ -163,7 +182,7 @@ class AppContext extends Component {
               <Route
               path="/add-note"
               render={({history})=>{
-              return <AddNote folders={this.state.folders} history={history} addNote={this.addNote}/>
+              return <AddNote handleNoteSubmit={this.handleNoteSubmit} folders={this.state.folders} history={history} addNote={this.addNote}/>
               }}
               
               />

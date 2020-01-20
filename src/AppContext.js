@@ -11,8 +11,8 @@ import SidebarFolder from "./SidebarFolder";
 // import NoteList from './NoteList';
 import FolderPage from "./FolderPage";
 import AddFolder from "./AddFolder";
-
 import NotefulContext from "./NotefulContext";
+import AddNote from './AddNote';
 
 class AppContext extends Component {
   constructor() {
@@ -23,6 +23,7 @@ class AppContext extends Component {
       notes: []
     };
     this.addFolder = React.createRef();
+    this.addNote = React.createRef();
   }
 
   componentDidMount() {
@@ -65,21 +66,14 @@ class AppContext extends Component {
     })
     .then(response=>{
       this.componentDidMount();
-      console.log("this",this.props.history.push('/'))
+      
       this.props.history.push('/')
       
       
     })
   };
 
-  // handleDeleteNote = noteId=>{
-  //     this.setState({
-  //         notes:this.state.notes.filter(note=>{
-  //           return  note.id!== noteId
-  //         })
-  //     })
-
-  // }
+  
 
   render() {
     const value = {
@@ -144,7 +138,7 @@ class AppContext extends Component {
                         match={match}
                         folders={this.state.folders}
                         notes={this.state.notes}
-                      />{" "}
+                      />
                     </ul>
                   );
                 }}
@@ -164,40 +158,18 @@ class AppContext extends Component {
                   );
                 }}
               />
+
+
+              <Route
+              path="/add-note"
+              render={({history})=>{
+              return <AddNote folders={this.state.folders} history={history} addNote={this.addNote}/>
+              }}
+              
+              />
             </Switch>
           </main>
 
-          {/* <Switch>
-                  <Route
-                    path="/"
-                    render={() => {
-                      return (
-                        <main>
-                          <SideBar
-                            folders={this.state.folders}
-                            notes={this.state.notes}
-                          />
-
-                          <Main folders={this.state.folders} notes={this.state.notes} />
-                        </main>
-                      );
-                    }}
-                  ></Route>
-                  <Route
-                    path="/folder/:folderId"
-                    render={({ match }) => {
-                      return (
-                        <main>
-                          <SideBar
-                            folders={this.state.folders}
-                            notes={this.state.notes}
-                          />
-                          <Main folders={this.state.folders} notes={this.state.notes} />
-                        </main>
-                      );
-                    }}
-                  ></Route>
-                </Switch> */}
         </div>
       </NotefulContext.Provider>
     );

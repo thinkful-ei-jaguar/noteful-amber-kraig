@@ -2,6 +2,7 @@ import React, {Component } from 'react';
 
 import NoteList from './NoteList';
 import NotefulContext from './NotefulContext';
+import {Link} from 'react-router-dom';
 
 
 class MainContext extends Component{
@@ -24,7 +25,7 @@ return(
 
                             
        
-       
+       <Link to="/add-note">Add New Note</Link>
      
        
 

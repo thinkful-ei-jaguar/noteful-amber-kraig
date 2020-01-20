@@ -74,19 +74,24 @@ class AppContext extends Component {
   };
 
   handleNoteSubmit= event=>{
-event.preventDefault()
+event.preventDefault();
+let folderForNote= this.state.folders.find(folder=>{
+  return folder.name===event.currentTarget.folderId.value
+});
+
 fetch('http://localhost:9090/notes',{
   method:'POST',
   headers:{'Content-Type':'application/json'},
 body:JSON.stringify({
   name:event.currentTarget.title.value,
-  folderId:event.currentTarget.folderId.value,
+  folderId:folderForNote.id,
   content:event.currentTarget.content.value
 })
 })
 .then(response=>{
   this.componentDidMount()
   this.props.history.push("/")
+  
 })
 
 

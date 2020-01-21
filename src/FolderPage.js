@@ -2,7 +2,7 @@ import React, {
     Component
 } from 'react';
 import NoteList from './NoteList';
-
+import {Link } from 'react-router-dom';
 
 class FolderPage extends Component {
 
@@ -25,7 +25,7 @@ class FolderPage extends Component {
 
 
             //     </ul>
-
+<>{
             finalFolders.map(note => {
                     console.log(note)
                     return <NoteList id = {
@@ -46,7 +46,9 @@ class FolderPage extends Component {
 
 
                 )
-
+    }
+<Link to="/add-note">Add New Note</Link>
+     </>
             )
 
 

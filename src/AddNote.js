@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-
+import propTypes from 'prop-types';
 
 class AddNote extends Component{
 // state={
@@ -48,6 +48,8 @@ return(
 
 
 }
-
+AddNote.propTypes={
+    folder:propTypes.array
+}
 
 export default AddNote

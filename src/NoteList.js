@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import {Link } from 'react-router-dom';
 import NotefulContext from './NotefulContext';
+import propTypes from 'prop-types';
 
 class NoteList extends Component{
 static contextType= NotefulContext;
@@ -35,5 +36,11 @@ return(
 
 
 }
+NoteList.propTypes={
+id:propTypes.string,
+name:propTypes.string,
+}
+
+
 
 export default NoteList;

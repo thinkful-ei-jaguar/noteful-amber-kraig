@@ -25,7 +25,7 @@ return(
 
                             
        
-       <Link to="/add-note">Add New Note</Link>
+       <Link className="note-link" to="/add-note">Add New Note</Link>
      
        
 

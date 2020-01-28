@@ -1,3 +1,12 @@
+.App{
+  text-align:center;
+}
+
+.note-link{
+ margin-left:130px;
+}
+
+
 .note-sidebar{
   writing-mode: vertical-lr;
   text-orientation: upright;
@@ -27,7 +36,10 @@ a:hover{
 
 main{
 width:700px;
-display:flex
+display:flex;
+margin-left:auto;
+margin-right:auto;
+
 
 }
 

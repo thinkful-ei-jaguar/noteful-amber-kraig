@@ -49,7 +49,7 @@ return(
 
 }
 AddNote.propTypes={
-    folder:propTypes.array
+    folder:propTypes.arrayOf(propTypes.object)
 }
 
 export default AddNote

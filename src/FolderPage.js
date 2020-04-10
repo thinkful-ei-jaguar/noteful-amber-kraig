@@ -3,7 +3,7 @@ import React, {
 } from 'react';
 import NoteList from './NoteList';
 import {Link } from 'react-router-dom';
-
+import PropTypes from 'prop-types';
 class FolderPage extends Component {
 
 
@@ -58,6 +58,10 @@ class FolderPage extends Component {
 
     }
 
+    FolderPage.propTypes = {
+        notes:PropTypes.array
+        }
+        
 
 
     export default FolderPage;

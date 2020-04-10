@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import NoteList from './NoteList';
-
+import PropTypes from 'prop-types';
 
 
 class NotePage extends Component{
@@ -42,6 +42,9 @@ name={currentFolder.name}
 
 }
 
+NotePage.propTypes = {
+    notes: PropTypes.array
+  }
 
 
 export default NotePage

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import PropTypes from 'prop-types';
 
 
 
@@ -23,5 +23,11 @@ class SidebarFolder extends Component{
         )
     }
 }
+
+SidebarFolder.propTypes={
+    notes: PropTypes.array,
+    folders:PropTypes.array
+}
+
 
 export default SidebarFolder;

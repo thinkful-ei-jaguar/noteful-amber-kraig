@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-
+import PropTypes from 'prop-types';
 class FolderList extends Component {
   render() {
     return (
@@ -13,4 +13,9 @@ class FolderList extends Component {
   }
 }
 
+FolderList.propTypes = {
+  id:PropTypes.string,
+  name:PropTypes.string
+  }
+  
 export default FolderList;

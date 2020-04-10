@@ -28,8 +28,8 @@ class AppContext extends Component {
 
   componentDidMount() {
     Promise.all([
-      fetch("http://localhost:9090/folders"),
-      fetch("http://localhost:9090/notes")
+      fetch("https://kraig-bookmarks.herokuapp.com/folders"),
+      fetch("https://kraig-bookmarks.herokuapp.com/notes")
     ])
 
       .then(([folderRes, notesRes]) => {
@@ -46,7 +46,7 @@ class AppContext extends Component {
   }
 
   handleDeleteNote = noteId => {
-    fetch(`http://localhost:9090/notes/${noteId}`, {
+    fetch(`https://kraig-bookmarks.herokuapp.com/notes/${noteId}`, {
       method: "DELETE"
     }).then(response => {
       this.componentDidMount();
@@ -59,7 +59,7 @@ class AppContext extends Component {
     
     //const name =JSON.stringify(newFolder)
     
-     fetch('http://localhost:9090/folders', {
+     fetch('https://kraig-bookmarks.herokuapp.com/folders', {
       method: 'POST',
        headers: {'Content-Type':'application/json'},
       body:JSON.stringify({name:newFolder})
@@ -79,7 +79,7 @@ let folderForNote= this.state.folders.find(folder=>{
   return folder.name===event.currentTarget.folderId.value
 });
 
-fetch('http://localhost:9090/notes',{
+fetch('https://kraig-bookmarks.herokuapp.com/notes',{
   method:'POST',
   headers:{'Content-Type':'application/json'},
 body:JSON.stringify({

@@ -29,4 +29,4 @@ class Errors extends Component {
     // }
 }
 
-//export default Errors
+export default Errors

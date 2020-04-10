@@ -13,6 +13,7 @@ import FolderPage from "./FolderPage";
 import AddFolder from "./AddFolder";
 import NotefulContext from "./NotefulContext";
 import AddNote from './AddNote';
+import Errors from './Errors'
 
 class AppContext extends Component {
   constructor() {
@@ -108,6 +109,7 @@ body:JSON.stringify({
 
     return (
       <NotefulContext.Provider value={value}>
+        <Errors>
         <div className="App">
           <Header />
 
@@ -195,6 +197,7 @@ body:JSON.stringify({
           </main>
 
         </div>
+        </Errors>
       </NotefulContext.Provider>
     );
   }

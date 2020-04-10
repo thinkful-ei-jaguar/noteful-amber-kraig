@@ -6,7 +6,7 @@ import NoteList from "./NoteList";
 import FolderList from "./FolderList";
 import NotePage from "./NotePage";
 import FolderPage from "./FolderPage";
-//import Errors from './Errors';
+import Errors from './Errors';
 class App extends Component {
   state = {
     folders: [
@@ -160,11 +160,13 @@ class App extends Component {
               path="/folder/:folderId"
               render={({ match }) => {
                 return (
+                  
                   <FolderPage
                     match={match}
                     folders={this.state.folders}
                     notes={this.state.notes}
                   />
+                
                 );
               }}
             />
@@ -176,6 +178,7 @@ class App extends Component {
               path="/"
               render={() =>
                 this.state.notes.map((note) => (
+
                   <NoteList
                     key={note.id}
                     id={note.id}

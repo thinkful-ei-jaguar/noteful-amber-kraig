@@ -16,16 +16,9 @@ class FolderPage extends Component {
 
 
         return (
-            //     <ul>
-            //     {finalFolders.map(each=>{
-            //      return   <li class="filtered-folders" key={each.id}><h2> {each.name} </h2>
-            // <p>{each.modified}</p>    </li>
-            //     })
-            //  }
 
-
-            //     </ul>
-<>{
+<>
+{
             finalFolders.map(note => {
                     console.log(note)
                     return <NoteList id = {

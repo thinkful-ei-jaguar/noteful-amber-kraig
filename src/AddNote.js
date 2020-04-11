@@ -27,9 +27,9 @@ render(){
     })
 return(
 
-<form name="submit-note" onSubmit={event=>this.props.handleNoteSubmit(event)}>
-<input name="title" type="text" placeholder="Enter note title"></input><br/><br/>
-<textarea name="content" placeholder="Enter note content"></textarea><br/><br/>
+<form name="submit-note"onSubmit={event=>this.props.handleNoteSubmit(event)}>
+<input required name="title" type="text" placeholder="Enter note title"></input><br/><br/>
+<textarea required name="content" placeholder="Enter note content"></textarea><br/><br/>
 <select  name="folderId">
     {folderOptions}
 </select><br/><br/>

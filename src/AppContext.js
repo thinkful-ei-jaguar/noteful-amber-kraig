@@ -28,29 +28,39 @@ class AppContext extends Component {
   }
 
   componentDidMount() {
-    Promise.all([
-      fetch("https://kraig-bookmarks.herokuapp.com/folders"),
-      fetch("https://kraig-bookmarks.herokuapp.com/notes")
-    ])
-
-      .then(([folderRes, notesRes]) => {
-        return Promise.all([folderRes.json(), notesRes.json()]);
-      })
-
-      .then(([folders, notes]) => {
-        console.log("this is api", folders, notes);
-        this.setState({
-          folders,
-          notes
-        });
-      });
+    this.reloadPage()
   }
 
+reloadPage =()=>{
+  return Promise.all([
+    fetch('http://localhost:9090/folders'),
+    fetch('http://localhost:9090/notes')
+   // fetch("https://kraig-bookmarks.herokuapp.com/folders"),
+    //fetch("https://kraig-bookmarks.herokuapp.com/notes")
+  ])
+
+    .then(([folderRes, notesRes]) => {
+      return Promise.all([folderRes.json(), notesRes.json()]);
+    })
+
+    .then(([folders, notes]) => {
+      console.log("this is api", folders, notes);
+      this.setState({
+        folders,
+        notes
+      });
+    });
+}
   handleDeleteNote = noteId => {
-    fetch(`https://kraig-bookmarks.herokuapp.com/notes/${noteId}`, {
+    fetch(`http://localhost:9090/notes/${noteId}`,{
+    //fetch(`https://kraig-bookmarks.herokuapp.com/notes/${noteId}`, {
       method: "DELETE"
     }).then(response => {
+      //this.componentDidMount()
+      this.props.history.push("/")
       this.componentDidMount();
+      
+      //this.props.history.goBack()
     });
   };
 
@@ -59,8 +69,8 @@ class AppContext extends Component {
     const newFolder = this.addFolder.current.value;
     
     //const name =JSON.stringify(newFolder)
-    
-     fetch('https://kraig-bookmarks.herokuapp.com/folders', {
+    fetch('http://localhost:9090/folders',{
+     //fetch('https://kraig-bookmarks.herokuapp.com/folders', {
       method: 'POST',
        headers: {'Content-Type':'application/json'},
       body:JSON.stringify({name:newFolder})
@@ -79,8 +89,8 @@ event.preventDefault();
 let folderForNote= this.state.folders.find(folder=>{
   return folder.name===event.currentTarget.folderId.value
 });
-
-fetch('https://kraig-bookmarks.herokuapp.com/notes',{
+fetch('http://localhost:9090/notes',{
+//fetch('https://kraig-bookmarks.herokuapp.com/notes',{
   method:'POST',
   headers:{'Content-Type':'application/json'},
 body:JSON.stringify({

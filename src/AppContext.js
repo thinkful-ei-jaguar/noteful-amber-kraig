@@ -57,6 +57,7 @@ reloadPage =()=>{
       method: "DELETE"
     }).then(response => {
       //this.componentDidMount()
+      console.log("this",this,"this")
       this.props.history.push("/")
       this.componentDidMount();
       

@@ -57,7 +57,7 @@ reloadPage =()=>{
       method: "DELETE"
     }).then(response => {
       //this.componentDidMount()
-      console.log("this",this,"this")
+     // console.log("this",this,"this")
       this.props.history.push("/")
       this.componentDidMount();
       
@@ -87,6 +87,8 @@ reloadPage =()=>{
 
   handleNoteSubmit= event=>{
 event.preventDefault();
+const date= new Date()
+
 let folderForNote= this.state.folders.find(folder=>{
   return folder.name===event.currentTarget.folderId.value
 });
@@ -97,7 +99,8 @@ fetch('http://localhost:9090/notes',{
 body:JSON.stringify({
   name:event.currentTarget.title.value,
   folderId:folderForNote.id,
-  content:event.currentTarget.content.value
+  content:event.currentTarget.content.value,
+  modified:date
 })
 })
 .then(response=>{

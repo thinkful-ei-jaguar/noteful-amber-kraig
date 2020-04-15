@@ -20,13 +20,23 @@ class SidebarFolder extends Component{
         //     }
             
         // }
+        console.log('this.props.notes',this.props.notes,this.props.match.params.id, 'params id')
          const each  = this.props.notes.find(item =>{
-            return item.id === this.props.match.params.id
+            return item.id.toString() === this.props.match.params.id.toString()
          })
-          console.log(each,"**********each************")
+          //console.log(each,"**********each************")
    const currentFolder= this.props.folders.find(folder=>
-      each.folder_id === folder.id )
+      each.folder_id === folder.id ) ||{}
 console.log(currentFolder,"current folder")
+
+
+//const currentFolder= this.props.folders.find(folder=>
+  //  each.folder_id === folder.id ) || {}
+
+
+
+
+
 
         return(
 <div>

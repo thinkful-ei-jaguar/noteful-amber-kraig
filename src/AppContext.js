@@ -67,7 +67,7 @@ reloadPage =()=>{
   handleAddFolder = event => {
     event.preventDefault();
     const newFolder = this.addFolder.current.value;
-    
+    console.log(newFolder, "new folder name")
     //const name =JSON.stringify(newFolder)
     fetch('https://kraig-noteful-api.herokuapp.com/api/folders',{
     
@@ -75,8 +75,8 @@ reloadPage =()=>{
        headers: {'Content-Type':'application/json'},
       body:JSON.stringify({name:newFolder})
     })
-    .then(response=>{
-      this.componentDidMount();
+    .then(()=>{
+this.componentDidMount();
       
       this.props.history.push('/')
       
@@ -87,7 +87,7 @@ reloadPage =()=>{
   handleNoteSubmit= event=>{
 event.preventDefault();
 //const date= new Date()
-
+console.log('folder for note',event.currentTarget.folderId.value)
 let folderForNote= this.state.folders.find(folder=>{
   return folder.name===event.currentTarget.folderId.value
 });
@@ -97,12 +97,12 @@ fetch('https://kraig-noteful-api.herokuapp.com/api/notes',{
   headers:{'Content-Type':'application/json'},
 body:JSON.stringify({
   name:event.currentTarget.title.value,
-  folderId:folderForNote.id,
+  folder_id:folderForNote.id,
   content:event.currentTarget.content.value,
   //modified:date
 })
 })
-.then(response=>{
+.then(()=>{
   this.componentDidMount()
   this.props.history.push("/")
   

@@ -7,8 +7,8 @@ class NotePage extends Component{
 render(){
     
     const each  = this.props.notes.find(item =>
-         item.id === this.props.match.params.id
-        )
+         item.id == this.props.match.params.id
+        ) ||{}
 // const currentFolder= this.props.folders.find(folder=>
 //    each.folderId === folder.id )const currentFolder= this.props.folders.find(folder=>
 //    each.folderId === folder.id )

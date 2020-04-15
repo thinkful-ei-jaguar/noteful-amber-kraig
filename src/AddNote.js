@@ -2,23 +2,6 @@ import React,{Component} from 'react';
 import propTypes from 'prop-types';
 
 class AddNote extends Component{
-// state={
-//     options:[]
-// }
-
-//  componentDidMount(){
-     
-//      fetch('http://localhost:9090/folders')
-//      .then(response=>response.json())
-//      .then(data=>{
-     
-//       let folderOptions= data.map(each=>{
-//         return <option>{each.name}</option> 
-//      })
-//      this.setState({options:folderOptions})
-     
-//      })
-//  }   
 
 
 render(){

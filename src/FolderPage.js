@@ -10,7 +10,7 @@ class FolderPage extends Component {
     render() {
         console.log("this is match", this.props.match)
         let finalFolders = this.props.notes.filter(note => {
-            return note.folder_id === this.props.match.params.folderId
+            return note.folder_id == this.props.match.params.folderId
         })
         console.log(finalFolders)
 

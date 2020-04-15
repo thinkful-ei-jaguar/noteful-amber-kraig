@@ -33,10 +33,9 @@ class AppContext extends Component {
 
 reloadPage =()=>{
   return Promise.all([
-    fetch('http://localhost:9090/folders'),
-    fetch('http://localhost:9090/notes')
-   // fetch("https://kraig-bookmarks.herokuapp.com/folders"),
-    //fetch("https://kraig-bookmarks.herokuapp.com/notes")
+    fetch('https://kraig-noteful-api.herokuapp.com/api/folders'),
+    fetch('https://kraig-noteful-api.herokuapp.com/api/notes')
+   
   ])
 
     .then(([folderRes, notesRes]) => {
@@ -52,8 +51,8 @@ reloadPage =()=>{
     });
 }
   handleDeleteNote = noteId => {
-    fetch(`http://localhost:9090/notes/${noteId}`,{
-    //fetch(`https://kraig-bookmarks.herokuapp.com/notes/${noteId}`, {
+    fetch(`https://kraig-noteful-api.herokuapp.com/api/notes/${noteId}`,{
+    
       method: "DELETE"
     }).then(response => {
       //this.componentDidMount()
@@ -70,8 +69,8 @@ reloadPage =()=>{
     const newFolder = this.addFolder.current.value;
     
     //const name =JSON.stringify(newFolder)
-    fetch('http://localhost:9090/folders',{
-     //fetch('https://kraig-bookmarks.herokuapp.com/folders', {
+    fetch('https://kraig-noteful-api.herokuapp.com/api/folders',{
+    
       method: 'POST',
        headers: {'Content-Type':'application/json'},
       body:JSON.stringify({name:newFolder})
@@ -87,20 +86,20 @@ reloadPage =()=>{
 
   handleNoteSubmit= event=>{
 event.preventDefault();
-const date= new Date()
+//const date= new Date()
 
 let folderForNote= this.state.folders.find(folder=>{
   return folder.name===event.currentTarget.folderId.value
 });
-fetch('http://localhost:9090/notes',{
-//fetch('https://kraig-bookmarks.herokuapp.com/notes',{
+fetch('https://kraig-noteful-api.herokuapp.com/api/notes',{
+
   method:'POST',
   headers:{'Content-Type':'application/json'},
 body:JSON.stringify({
   name:event.currentTarget.title.value,
   folderId:folderForNote.id,
   content:event.currentTarget.content.value,
-  modified:date
+  //modified:date
 })
 })
 .then(response=>{
@@ -115,14 +114,14 @@ body:JSON.stringify({
   
 
   render() {
-    const value = {
+    const contextValue = {
       notes: this.state.notes,
       folders: this.state.folders,
       deleteNote: this.handleDeleteNote
     };
 
     return (
-      <NotefulContext.Provider value={value}>
+      <NotefulContext.Provider value={contextValue}>
         <Errors>
         <div className="App">
           <Header />

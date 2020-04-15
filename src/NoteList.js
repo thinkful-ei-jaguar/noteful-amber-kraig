@@ -38,7 +38,7 @@ return(
 }
 
 NoteList.propTypes = {
-id:PropTypes.string,
+id:PropTypes.number,
 name:PropTypes.string
 }
 
